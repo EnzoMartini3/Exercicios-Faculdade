@@ -35,7 +35,7 @@ public static void main(String[] args) throws UnsupportedEncodingException{
             System.out.println("SIM");
         }else{
 
-            System.out.println("NÃO");
+            System.out.println("NAO");
         }
     } while (!(frase.equals("FIM")));
     scanner.close(); //fechar scanner

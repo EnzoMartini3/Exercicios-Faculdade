@@ -5,18 +5,14 @@ public class Cesar3 {
         StringBuilder resultado = new StringBuilder();
 
         for (int i = 0; i < frased.length(); i++) {
-            char letra = frased.charAt(i);
+            char caractere = frased.charAt(i);
 
-            // Verifica se é letra maiúscula
-            if (letra >= 'A' && letra <= 'Z') {
-                letra = (char) ('A' + (letra - 'A' + chave) % 26);
-            }
-            // Verifica se é letra minúscula
-            else if (letra >= 'a' && letra <= 'z') {
-                letra = (char) ('a' + (letra - 'a' + chave) % 26);
-            }
+            //desloca para caracteres entre 32 e 126(letras, acentos, etc)
+            if (caractere >= 32 && caractere <= 126) {
+                caractere = (char) (32 + (caractere - 32 + chave) % (126 - 32 + 1));
+            } //se ultrapassar o 126, ele retorna para 32
 
-            resultado.append(letra); // Adiciona a letra tratada
+            resultado.append(caractere);
         }    
         return resultado.toString();
     }
@@ -32,9 +28,9 @@ public class Cesar3 {
                 break;
             }
 
-            System.out.println(deslocar(frase, chave)); // Imprimir frase cifrada
+            System.out.println(deslocar(frase, chave)); //imprime
         }
 
-        scanner.close();
+        scanner.close();//fecha scanner
     }
 }
